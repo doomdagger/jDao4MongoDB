@@ -21,7 +21,7 @@
     <context:annotation-config />
 
     <!-- package scan for spring annotation-driven configuration -->
-
+    <context:component-scan base-package="com.fan1tuan.dao.impl"/>
 
     <!-- mongodb configuration -->
     <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}">
