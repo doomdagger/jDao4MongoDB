@@ -11,8 +11,7 @@ import java.util.*;
 
 /**
  * General purpose date utilities.
- *
- * TODO: all date handling functions need to be aware of locale and timezone.
+ * @author  Li He
  */
 public abstract class DateUtil {
     
