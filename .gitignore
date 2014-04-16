@@ -4,3 +4,13 @@
 *.jar
 *.war
 *.ear
+
+# intellij project meta data #
+/.idea
+
+# maven compiled objets #
+/target
+
+
+# project meta data file #
+fan1tuan.iml
