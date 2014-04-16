@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+						http://www.springframework.org/schema/task
+						http://www.springframework.org/schema/task/spring-task-4.0.xsd
+						http://www.springframework.org/schema/data/mongo
+						http://www.springframework.org/schema/data/mongo/spring-mongo-1.4.xsd">
+    <!-- mongodb configuration for fan1tuan -->
+    <context:property-placeholder
+            location="classpath:fan1tuan-custom.properties" />
+    <context:annotation-config />
+
+    <!-- package scan for spring annotation-driven configuration -->
+
+
+    <!-- mongodb configuration -->
+    <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}">
+        <mongo:options connections-per-host="${mongo.connectionsPerHost}"
+                       connect-timeout="${mongo.connectionTimeout}"
+                       threads-allowed-to-block-for-connection-multiplier="${mongo.threadsAllowedToBlockForConnectionMultiplier}"
+                       max-wait-time="${mongo.maxWaitTime}" auto-connect-retry="${mongo.autoConnectRetry}"
+                       socket-keep-alive="${mongo.socketKeepAlive}" socket-timeout="${mongo.socketTimeout}"
+                       slave-ok="${mongo.slaveOk}" write-timeout="${mongo.writeTimeout}"
+                       write-fsync="${mongo.writeFsync}" />
+    </mongo:mongo>
+
+    <mongo:db-factory mongo-ref="mongo" id="mongoDbFactory" dbname="${mongo.dbname}" />
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+        <property name="writeResultChecking" value="EXCEPTION"/>
+    </bean>
+
+    <!-- aop config -->
+    <bean id="serviceAround" class="com.fan1tuan.business.support.ServiceAround">
+    </bean>
+    <aop:config>
+        <aop:pointcut id="booleanReturnCut"
+                      expression="execution(public boolean com.fan1tuan..*.business.*Service+.*(..))" />
+        <aop:pointcut id="entityObjectReturnCut"
+                      expression="execution(public com.fan1tuan.pojos.support.EntityObject+ com.fan1tuan..*.business.*Service+.*(..))" />
+        <aop:pointcut id="longReturnCut"
+                      expression="execution(public long com.fan1tuan..*.business.*Service+.*(..))" />
+        <aop:pointcut id="voidReturnCut"
+                      expression="execution(public void com.fan1tuan..*.business.*Service+.*(..))" />
+        <aop:pointcut id="collectionObjectReturnCut"
+                      expression="execution(public java.util.Collection+ com.fan1tuan..*.business.*Service+.*(..))" />
+        <aop:aspect ref="serviceAround">
+            <aop:around pointcut-ref="booleanReturnCut"
+                        method="booleanAroundMethod"/>
+            <aop:around pointcut-ref="entityObjectReturnCut"
+                        method="objectAroundMethod"  />
+            <aop:around pointcut-ref="collectionObjectReturnCut"
+                        method="objectAroundMethod"  />
+            <aop:around pointcut-ref="longReturnCut"
+                        method="longAroundMethod"  />
+            <aop:around pointcut-ref="voidReturnCut"
+                        method="voidAroundMethod"  />
+        </aop:aspect>
+    </aop:config>
+
+    <!-- add scheduler and asyncer support -->
+    <task:annotation-driven executor="executor"
+                            scheduler="scheduler" />
+    <task:executor id="executor" pool-size="10" />
+    <task:scheduler id="scheduler" pool-size="10" />
+
+
+</beans>
