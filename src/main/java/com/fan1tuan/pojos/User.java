@@ -36,4 +36,5 @@ public class User extends EntityObject{
     private ShoppingCart shoppingCart;
 
 
+
 }

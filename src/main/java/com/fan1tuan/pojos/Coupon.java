@@ -10,6 +10,10 @@ import java.util.Date;
  */
 public class Coupon extends EntityObject{
 
+    private String shopId;
+    private String shopName;
+    private String shopAvatar;
+
     private String code;
     private int faceValue;
 

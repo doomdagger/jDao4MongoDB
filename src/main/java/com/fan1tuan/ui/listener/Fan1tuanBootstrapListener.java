@@ -4,6 +4,7 @@ import com.fan1tuan.config.Fan1TuanConfig;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.lang.reflect.Field;
 
 /**
  * Created by Li He on 2014/4/16.
