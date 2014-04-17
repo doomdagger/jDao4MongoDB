@@ -13,12 +13,13 @@ public class Fan1tuanBootstrapListener implements ServletContextListener{
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-
+        //ensuring log path in System Property
+        System.setProperty("path.log", Fan1TuanConfig.getProperty("path.log"));
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        //ensuring log path in System Property
-        System.setProperty("path.log", Fan1TuanConfig.getProperty("path.log"));
+
+
     }
 }
