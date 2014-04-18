@@ -11,11 +11,40 @@ import java.util.Date;
 public class DishCollect extends EntityObject{
 
     private String dishId;
-    private String dishName;
-    private String dishAvatar;
     private String shopId;
-    private String shopName;
+
     private Date date;
     private int status; // 是否失效
 
+    public String getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
+    }
+
+    public String getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(String shopId) {
+        this.shopId = shopId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 }

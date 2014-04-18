@@ -11,11 +11,32 @@ import java.util.Date;
 public class ShopCollect extends EntityObject{
 
     private String shopId;
-    private String shopName;
-    private String shopAvatar; //image path
-
 
     private Date date;
     private int status; //是否失效
 
+
+    public String getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(String shopId) {
+        this.shopId = shopId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 }

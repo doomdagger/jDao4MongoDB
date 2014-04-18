@@ -17,5 +17,62 @@ public class DishItem extends EntityObject{
     private double dishPrice;  // the real price of the single dish
     private double dishSumPrice; // the real sum prices of all the dishes
 
-    private String remark;  //the remark from the user.
+    private String remark;  //the remark from the user. leave it null if the dish item is used in shopping cart
+
+
+    public String getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
+    }
+
+    public String getDishName() {
+        return dishName;
+    }
+
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
+    }
+
+    public String getDishAvatar() {
+        return dishAvatar;
+    }
+
+    public void setDishAvatar(String dishAvatar) {
+        this.dishAvatar = dishAvatar;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public double getDishPrice() {
+        return dishPrice;
+    }
+
+    public void setDishPrice(double dishPrice) {
+        this.dishPrice = dishPrice;
+    }
+
+    public double getDishSumPrice() {
+        return dishSumPrice;
+    }
+
+    public void setDishSumPrice(double dishSumPrice) {
+        this.dishSumPrice = dishSumPrice;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }

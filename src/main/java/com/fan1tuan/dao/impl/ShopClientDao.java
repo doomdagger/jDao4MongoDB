@@ -16,4 +16,9 @@ public class ShopClientDao extends Fan1TuanDaoImpl<ShopClient> {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Override
+    public MongoTemplate getMongoTemplate(){
+        return mongoTemplate;
+    }
+
 }

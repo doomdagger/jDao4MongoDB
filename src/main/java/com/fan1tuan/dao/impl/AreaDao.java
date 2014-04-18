@@ -16,4 +16,11 @@ public class AreaDao extends Fan1TuanDaoImpl<Area>{
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Override
+    public MongoTemplate getMongoTemplate(){
+        return mongoTemplate;
+    }
+
+
 }

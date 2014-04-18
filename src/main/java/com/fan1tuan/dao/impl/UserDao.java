@@ -16,4 +16,9 @@ public class UserDao extends Fan1TuanDaoImpl<User> {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Override
+    public MongoTemplate getMongoTemplate(){
+        return mongoTemplate;
+    }
+
 }

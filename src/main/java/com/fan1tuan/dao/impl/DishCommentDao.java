@@ -14,4 +14,10 @@ import org.springframework.stereotype.Repository;
 public class DishCommentDao extends Fan1TuanDaoImpl<DishComment> {
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Override
+    public MongoTemplate getMongoTemplate(){
+        return mongoTemplate;
+    }
+
 }

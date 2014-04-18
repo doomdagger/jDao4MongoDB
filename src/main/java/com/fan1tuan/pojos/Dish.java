@@ -33,4 +33,117 @@ public class Dish extends EntityObject{
     private Date createTime; // create time of dish
 
     private boolean feature; //is the dish recommended by the shop owner
+
+
+    public String getDishId() {
+        return dishId;
+    }
+
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
+    }
+
+    public String getDishCategory() {
+        return dishCategory;
+    }
+
+    public void setDishCategory(String dishCategory) {
+        this.dishCategory = dishCategory;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(double originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public int getSaleVolume() {
+        return saleVolume;
+    }
+
+    public void setSaleVolume(int saleVolume) {
+        this.saleVolume = saleVolume;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public int getCommentNum() {
+        return commentNum;
+    }
+
+    public void setCommentNum(int commentNum) {
+        this.commentNum = commentNum;
+    }
+
+    public double getCommentLevel() {
+        return commentLevel;
+    }
+
+    public void setCommentLevel(double commentLevel) {
+        this.commentLevel = commentLevel;
+    }
+
+    public double getAvgCommentLevel() {
+        return avgCommentLevel;
+    }
+
+    public void setAvgCommentLevel(double avgCommentLevel) {
+        this.avgCommentLevel = avgCommentLevel;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public boolean isFeature() {
+        return feature;
+    }
+
+    public void setFeature(boolean feature) {
+        this.feature = feature;
+    }
 }

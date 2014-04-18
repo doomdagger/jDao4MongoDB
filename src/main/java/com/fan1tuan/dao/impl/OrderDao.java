@@ -14,4 +14,10 @@ import org.springframework.stereotype.Repository;
 public class OrderDao extends Fan1TuanDaoImpl<Order> {
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    @Override
+    public MongoTemplate getMongoTemplate(){
+        return mongoTemplate;
+    }
+
 }
