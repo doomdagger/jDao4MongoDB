@@ -19,6 +19,8 @@ public class DishItem extends EntityObject{
 
     private String remark;  //the remark from the user. leave it null if the dish item is used in shopping cart
 
+    private boolean commented; //该菜品是否已经评价~
+    private String dishCommentId; // 对于该菜品的对应评价对象 reference
 
     public String getDishId() {
         return dishId;
@@ -74,5 +76,21 @@ public class DishItem extends EntityObject{
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public boolean isCommented() {
+        return commented;
+    }
+
+    public void setCommented(boolean commented) {
+        this.commented = commented;
+    }
+
+    public String getDishCommentId() {
+        return dishCommentId;
+    }
+
+    public void setDishCommentId(String dishCommentId) {
+        this.dishCommentId = dishCommentId;
     }
 }

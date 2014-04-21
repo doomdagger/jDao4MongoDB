@@ -14,7 +14,7 @@ import java.util.*;
  * @author  Li He
  */
 public abstract class DateUtil {
-    
+
     public static final long millisInDay = 86400000;
     
     // a bunch of date formats
