@@ -22,6 +22,7 @@
 
     <!-- package scan for spring annotation-driven configuration -->
     <context:component-scan base-package="com.fan1tuan.dao.impl"/>
+    <context:component-scan base-package="com.fan1tuan.client.user.business.impl"/>
 
     <!-- mongodb configuration -->
     <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}">
@@ -45,7 +46,7 @@
     <bean id="serviceAround" class="com.fan1tuan.business.support.ServiceAround">
     </bean>
     <aop:config>
-        <aop:pointcut id="booleanReturnCut"
+        <!--<aop:pointcut id="booleanReturnCut"
                       expression="execution(public boolean com.fan1tuan..*.business.*Service+.*(..))" />
         <aop:pointcut id="entityObjectReturnCut"
                       expression="execution(public com.fan1tuan.pojos.support.EntityObject+ com.fan1tuan..*.business.*Service+.*(..))" />
@@ -54,9 +55,13 @@
         <aop:pointcut id="voidReturnCut"
                       expression="execution(public void com.fan1tuan..*.business.*Service+.*(..))" />
         <aop:pointcut id="collectionObjectReturnCut"
-                      expression="execution(public java.util.Collection+ com.fan1tuan..*.business.*Service+.*(..))" />
+                      expression="execution(public java.util.Collection+ com.fan1tuan..*.business.*Service+.*(..))" />-->
+
+        <aop:pointcut id="statusAwareResultReturnCut"
+                      expression="execution(public com.fan1tuan.business.support.StatusAwareResult com.fan1tuan..*.business.*Service+.*(..))" />
+
         <aop:aspect ref="serviceAround">
-            <aop:around pointcut-ref="booleanReturnCut"
+            <!--<aop:around pointcut-ref="booleanReturnCut"
                         method="booleanAroundMethod"/>
             <aop:around pointcut-ref="entityObjectReturnCut"
                         method="objectAroundMethod"  />
@@ -65,7 +70,11 @@
             <aop:around pointcut-ref="longReturnCut"
                         method="longAroundMethod"  />
             <aop:around pointcut-ref="voidReturnCut"
-                        method="voidAroundMethod"  />
+                        method="voidAroundMethod"  />-->
+
+            <aop:around method="statusAwareResultAroundMethod"
+                        pointcut-ref="statusAwareResultReturnCut"/>
+
         </aop:aspect>
     </aop:config>
 

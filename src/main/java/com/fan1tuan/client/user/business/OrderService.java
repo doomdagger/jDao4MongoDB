@@ -1,7 +1,9 @@
 package com.fan1tuan.client.user.business;
 
 import com.fan1tuan.business.support.Fan1TuanService;
+import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.business.support.enums.OrderStatus;
+import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.pojos.Order;
 
 import java.util.List;
@@ -13,13 +15,13 @@ import java.util.List;
  */
 public interface OrderService extends Fan1TuanService{
 
-    boolean addOrder(Order... orders);
+    StatusAwareResult<Boolean> addOrder(Order... orders);
 
-    boolean updateOrderStatus(String orderId, OrderStatus status);
+    StatusAwareResult<Boolean> updateOrderStatus(String orderId, OrderStatus status);
 
-    Order fetchOrder(String orderId);
+    StatusAwareResult<Order> fetchOrder(String orderId);
 
-    List<Order> fetchOrders(String userId, int pageNumber, int pageSize);
+    StatusAwareResult<List<Order>> fetchOrders(String userId, int pageNumber, int pageSize);
 
 //    List<Order> fetchOrdersConditioned(String userId, int pageNumber, int pageSize);
 

@@ -1,5 +1,6 @@
 package com.fan1tuan.business.support;
 
+import com.fan1tuan.business.support.enums.ResultStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,6 +12,25 @@ public class ServiceAround {
 
 	static Logger logger = LogManager.getLogger("com.fan1tuan.business.ServiceLogger");
 
+
+    /**
+     * catching StatusAwareResult returned-value method
+     * @param point catching point of service method
+     * @return StatusAwareResult object
+     */
+    @SuppressWarnings("unchecked")
+    public <T> StatusAwareResult<T> statusAwareResultAroundMethod(ProceedingJoinPoint point){
+        try{
+            logger.entry(point.getArgs());
+            logger.info("In "+point.getTarget().getClass().getName()+" "+point.getSignature().getName());
+            return logger.exit((StatusAwareResult<T>)point.proceed(point.getArgs()));
+        }catch(Throwable exception){
+            logger.catching(exception);
+            ResultStatus status = ResultStatus.UNKNOWN_ERROR;
+            status.rawMessage(exception.getMessage());
+            return logger.exit(new StatusAwareResult<T>(status,null));
+        }
+    }
 
     /**
      * catching boolean returned-value method

@@ -1,6 +1,9 @@
 package com.fan1tuan.client.user.business;
 
 import com.fan1tuan.business.support.Fan1TuanService;
+import com.fan1tuan.business.support.StatusAwareResult;
+import com.fan1tuan.business.support.enums.ResultStatus;
+import com.fan1tuan.pojos.User;
 
 /**
  * Created by Li He on 2014/4/21.
@@ -9,6 +12,6 @@ import com.fan1tuan.business.support.Fan1TuanService;
  */
 public interface UserService extends Fan1TuanService{
 
-
+    StatusAwareResult<User> test();
 
 }
