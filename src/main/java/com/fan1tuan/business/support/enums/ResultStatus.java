@@ -5,7 +5,7 @@ package com.fan1tuan.business.support.enums;
  * @author Li He
  */
 public enum ResultStatus {
-    SUCCESS,NEED_LOGIN,UNKNOWN_ERROR;
+    SUCCESS,NEED_LOGIN,UNKNOWN_ERROR,FAIL;
 
     private String message;
 

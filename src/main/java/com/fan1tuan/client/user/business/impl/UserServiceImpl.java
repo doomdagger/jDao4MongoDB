@@ -21,12 +21,16 @@ public class UserServiceImpl implements UserService{
         user.setUsername("lihe911119");
 
         StatusAwareResult<User> ret = new StatusAwareResult<>();
-        ret.setStatus(ResultStatus.SUCCESS);
-        ret.setRet(user);
+        ResultStatus failRet = ResultStatus.FAIL;
 
-        throw new AssertionError("I make this exception, nice!", new RuntimeException());
+        failRet.rawMessage("你这样做不合法！！！");
 
-//        return ret;
+        ret.setStatus(failRet);
+        ret.setRet(new User());
+
+//        throw new AssertionError("I make this exception, nice!", new RuntimeException());
+
+        return ret;
     }
 
 }

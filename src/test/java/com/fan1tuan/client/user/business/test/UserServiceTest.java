@@ -3,7 +3,16 @@ package com.fan1tuan.client.user.business.test;
 import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.client.user.business.UserService;
 import com.fan1tuan.config.Fan1TuanConfig;
+import com.fan1tuan.dao.impl.UserDao;
+import com.fan1tuan.dao.support.aggregate.Group;
+import com.fan1tuan.dao.support.aggregate.Project;
+import com.fan1tuan.dao.support.common.CriteriaWrapper;
+import com.fan1tuan.dao.support.common.Pageable;
+import com.fan1tuan.dao.support.common.Sortable;
+import com.fan1tuan.dao.support.query.FieldFilter;
+import com.fan1tuan.dao.support.update.UpdateWrapper;
 import com.fan1tuan.pojos.User;
+import org.hibernate.sql.Update;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,5 +36,7 @@ public class UserServiceTest {
         System.out.println(result);
 
         System.out.println(result.getRet().toJSON());
+
+
     }
 }

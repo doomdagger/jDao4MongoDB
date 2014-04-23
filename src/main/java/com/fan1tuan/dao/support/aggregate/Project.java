@@ -73,7 +73,7 @@ public class Project {
      * inner class for algorithm on filed
      * @author  Li He
      */
-    static class AlgorithmBuilder {
+    public static class AlgorithmBuilder {
         private ProjectionOperation.ProjectionOperationBuilder builder;
         private Project parent;
         protected AlgorithmBuilder(Project parent, ProjectionOperation.ProjectionOperationBuilder builder) {
