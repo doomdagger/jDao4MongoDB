@@ -15,10 +15,30 @@ import java.util.List;
  */
 public interface OrderService extends Fan1TuanService{
 
+    /**
+     * 添加一个订单或添加多个订单，用户确认订单时会执行
+     * 此业务方法，一次性添加多个订单到数据库，此时订单
+     * 应当存有用户ID以作关联。
+     * @param orders 不定参，多个order实体
+     * @return 返回Boolean，代表添加订单是否成功
+     */
     StatusAwareResult<Boolean> addOrder(Order... orders);
 
+    /**
+     * 修改订单状态，用户能够在下单后修改的仅有订单状态，
+     * 例如，在收到货物后确认订单，将订单中菜品全部评价完后，
+     * 更新订单状态为已评价。
+     * @param orderId 需要更新的订单ID
+     * @param status  将订单更新至的状态
+     * @return 返回Boolean，代表更新订单状态是否成功
+     */
     StatusAwareResult<Boolean> updateOrderStatus(String orderId, OrderStatus status);
 
+    /**
+     * 获取一个订单对象，根据订单ID来获取
+     * @param orderId 要获取的订单的ID
+     * @return 返回订单对象
+     */
     StatusAwareResult<Order> fetchOrder(String orderId);
 
     StatusAwareResult<List<Order>> fetchOrders(String userId, int pageNumber, int pageSize);

@@ -38,6 +38,7 @@ public class User extends EntityObject{
 
     private ShoppingCart shoppingCart;
 
+    private UserConfig userConfig;
 
     public String getId() {
         return id;
@@ -181,5 +182,13 @@ public class User extends EntityObject{
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    public UserConfig getUserConfig() {
+        return userConfig;
+    }
+
+    public void setUserConfig(UserConfig userConfig) {
+        this.userConfig = userConfig;
     }
 }

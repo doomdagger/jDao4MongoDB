@@ -16,15 +16,18 @@ import java.util.List;
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
+
     @Override
     public StatusAwareResult<Boolean> addOrder(Order... orders) {
         return null;
     }
 
+
     @Override
     public StatusAwareResult<Boolean> updateOrderStatus(String orderId, OrderStatus status) {
         return null;
     }
+
 
     @Override
     public StatusAwareResult<Order> fetchOrder(String orderId) {
