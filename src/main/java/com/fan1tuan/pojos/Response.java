@@ -10,16 +10,16 @@ import java.util.Date;
  */
 public class Response extends EntityObject{
 
-    private String userId;
-    private String username;
+    private String userId;  //user id
+    private String username; //user name
 
-    private String content;
-    private Date responseDate;
+    private String content; // content of the response
+    private Date responseDate; // response of the date
     private int postSource; //是在哪种平台上发布的，Android or iPhone or iPad
 
-    private boolean hasReference;
-    private String referredUserId;
-    private String referredUserName;
+    private boolean hasReference;  //is the response has reference to another user -- sub response
+    private String referredUserId;  //the referred user id
+    private String referredUserName; //the referred user name
 
 
     public String getUserId() {

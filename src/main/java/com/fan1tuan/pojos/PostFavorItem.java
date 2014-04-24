@@ -7,8 +7,9 @@ import com.fan1tuan.pojos.support.EntityObject;
  * @author Li He
  */
 public class PostFavorItem extends EntityObject{
-    private String userId;
-    private String username;
+
+    private String userId; // favored user id
+    private String username; // favored user name
 
     public String getUserId() {
         return userId;

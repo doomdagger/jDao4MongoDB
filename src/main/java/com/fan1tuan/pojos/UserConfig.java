@@ -14,6 +14,7 @@ public class UserConfig extends EntityObject{
 
     private int secureStrategy; // enum枚举值，个人信息 包括对任何人可见，对好友可见，对任何人均不可见
 
+
     public boolean isReceiveAnonymousPost() {
         return receiveAnonymousPost;
     }
