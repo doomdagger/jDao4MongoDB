@@ -14,7 +14,18 @@ public class UserConfig extends EntityObject{
 
     private boolean anonymousInSocial; //是否在post以及回复中暴露个人用户名以及个人信息
 
+    private boolean autoPostOrderInfo; //是否在下订单后自动发布post信息
+
     private int secureStrategy; // enum枚举值，个人信息 包括对任何人可见，对好友可见，对任何人均不可见
+
+
+    public boolean isAutoPostOrderInfo() {
+        return autoPostOrderInfo;
+    }
+
+    public void setAutoPostOrderInfo(boolean autoPostOrderInfo) {
+        this.autoPostOrderInfo = autoPostOrderInfo;
+    }
 
     public boolean isAnonymousInSocial() {
         return anonymousInSocial;

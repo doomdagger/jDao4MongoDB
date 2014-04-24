@@ -1,6 +1,7 @@
 package com.fan1tuan.client.user.business.test;
 
 import com.fan1tuan.business.support.StatusAwareResult;
+import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.client.user.business.UserService;
 import com.fan1tuan.config.Fan1TuanConfig;
 import com.fan1tuan.dao.impl.UserDao;
@@ -23,7 +24,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 
 public class UserServiceTest {
-    @Test
+    /*@Test
     public void test(){
         System.setProperty("path.log", Fan1TuanConfig.getProperty("path.log"));
 
@@ -38,5 +39,12 @@ public class UserServiceTest {
         System.out.println(result.getRet().toJSON());
 
 
+    }*/
+
+    @Test
+    public void test2(){
+        ResultStatus resultStatus = ResultStatus.FAIL;
+
+        System.out.println(resultStatus.ordinal());
     }
 }
