@@ -12,8 +12,17 @@ public class UserConfig extends EntityObject{
 
     private boolean exposeLocationInfo; //自己的位置信息是否希望他人可见
 
+    private boolean anonymousInSocial; //是否在post以及回复中暴露个人用户名以及个人信息
+
     private int secureStrategy; // enum枚举值，个人信息 包括对任何人可见，对好友可见，对任何人均不可见
 
+    public boolean isAnonymousInSocial() {
+        return anonymousInSocial;
+    }
+
+    public void setAnonymousInSocial(boolean anonymousInSocial) {
+        this.anonymousInSocial = anonymousInSocial;
+    }
 
     public boolean isReceiveAnonymousPost() {
         return receiveAnonymousPost;
