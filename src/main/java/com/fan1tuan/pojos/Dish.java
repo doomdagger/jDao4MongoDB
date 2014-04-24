@@ -14,6 +14,8 @@ public class Dish extends EntityObject{
 
     private String dishCategory; // dish category goes here
 
+    private List<DishTag> dishTags; //tag for the dish, may be a empty list
+
     private String name; // dish name
 
     private double price; // dish current price
@@ -34,6 +36,13 @@ public class Dish extends EntityObject{
 
     private boolean feature; //is the dish recommended by the shop owner
 
+    public List<DishTag> getDishTags() {
+        return dishTags;
+    }
+
+    public void setDishTags(List<DishTag> dishTags) {
+        this.dishTags = dishTags;
+    }
 
     public String getDishId() {
         return dishId;

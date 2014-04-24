@@ -37,7 +37,15 @@ public class Post extends EntityObject{
     private List<PostFavorItem> favorItems;
 
     private double[] location;
+    private String locationName; //地点的简短介绍
 
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 
     public String getId() {
         return id;

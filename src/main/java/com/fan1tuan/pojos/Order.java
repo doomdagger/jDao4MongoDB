@@ -51,8 +51,27 @@ public class Order extends EntityObject{
 
     private Date deliveryTime;//用户提供
 
-    private int chargeType;//用户提供
+    private int chargeType;//用户提供，支付手段，货到付款，微信支付，现金支付
 
+    private int usedFanGrainNum;  //此订单使用了多少饭粒来抵价，记录此值，是为了好给卖家还钱
+
+    private List<String> usedCoupons; //记录此订单使用的代金卷
+
+    public int getUsedFanGrainNum() {
+        return usedFanGrainNum;
+    }
+
+    public void setUsedFanGrainNum(int usedFanGrainNum) {
+        this.usedFanGrainNum = usedFanGrainNum;
+    }
+
+    public List<String> getUsedCoupons() {
+        return usedCoupons;
+    }
+
+    public void setUsedCoupons(List<String> usedCoupons) {
+        this.usedCoupons = usedCoupons;
+    }
 
     public String getId() {
         return id;

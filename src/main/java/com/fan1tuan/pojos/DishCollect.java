@@ -13,8 +13,27 @@ public class DishCollect extends EntityObject{
     private String dishId;
     private String shopId;
 
+    private String dishName;
+    private String dishAvatar;
+
     private Date date;
     private int status; // 是否失效
+
+    public String getDishName() {
+        return dishName;
+    }
+
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
+    }
+
+    public String getDishAvatar() {
+        return dishAvatar;
+    }
+
+    public void setDishAvatar(String dishAvatar) {
+        this.dishAvatar = dishAvatar;
+    }
 
     public String getDishId() {
         return dishId;
