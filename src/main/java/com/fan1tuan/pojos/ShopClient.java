@@ -19,6 +19,24 @@ public class ShopClient extends EntityObject{
 
     private List<String> shopIds; //owned shops' ids
 
+    private String wechatPayId; //微信支付端账号
+    private String alipayId; //支付宝支付端账号
+
+    public String getWechatPayId() {
+        return wechatPayId;
+    }
+
+    public void setWechatPayId(String wechatPayId) {
+        this.wechatPayId = wechatPayId;
+    }
+
+    public String getAlipayId() {
+        return alipayId;
+    }
+
+    public void setAlipayId(String alipayId) {
+        this.alipayId = alipayId;
+    }
 
     public String getId() {
         return id;

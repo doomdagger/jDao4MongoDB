@@ -12,9 +12,27 @@ public class ShopCollect extends EntityObject{
 
     private String shopId;
 
+    private String shopName;
+    private String shopAvatar;
+
     private Date date;
     private int status; //是否失效
 
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getShopAvatar() {
+        return shopAvatar;
+    }
+
+    public void setShopAvatar(String shopAvatar) {
+        this.shopAvatar = shopAvatar;
+    }
 
     public String getShopId() {
         return shopId;

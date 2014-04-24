@@ -45,6 +45,8 @@ public class Shop extends EntityObject{
 
     private List<ShopSale> shopSales; //dish sale info
 
+    private List<CouponItem> couponItems; //卖家的Coupon存根，在这里，卖家可以查看Coupon的发放和使用记录
+
     private boolean open; //is open now??
     private boolean availableForOrder; //can receive order now or not
     private Date openTime; //open time daily
@@ -61,6 +63,13 @@ public class Shop extends EntityObject{
 
     private List<Dish> dishes; // dish list of the shop
 
+    public List<CouponItem> getCouponItems() {
+        return couponItems;
+    }
+
+    public void setCouponItems(List<CouponItem> couponItems) {
+        this.couponItems = couponItems;
+    }
 
     public String getId() {
         return id;
