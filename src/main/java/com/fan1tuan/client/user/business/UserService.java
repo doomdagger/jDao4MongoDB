@@ -2,13 +2,7 @@ package com.fan1tuan.client.user.business;
 
 import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
-import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.pojos.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import javafx.animation.Animation;
-import org.springframework.ui.Model;
-
-import java.util.List;
 
 /**
  * Created by Li He on 2014/4/21.
@@ -101,6 +95,15 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> addDishCollect(String userId, Dish dish);
 
     /**
+     * 通过美食和所属餐厅id添加美食收藏
+     * @param userId 用户id
+     * @param dishId 美食id
+     * @param shopId 美食所属餐厅id
+     * @return 返回Boolean代表添加收藏是否成功
+     */
+    StatusAwareResult<Boolean> addDishCollectById(String userId, String dishId, String shopId);
+
+    /**
      * 删除美食收藏
      * @param userId 用户id
      * @param dishCollectId 删除的美食收藏(DishCollect)id
@@ -126,12 +129,21 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> addDishToShoppingCart(String userId, Dish dish);
 
     /**
+     * 通过美食和所属餐厅id添加美食至购物车
+     * @param userId 用户id
+     * @param dishId 美食id
+     * @param shopId 所属餐厅id
+     * @return 返回Boolean代表添加是否成功
+     */
+    StatusAwareResult<Boolean> addDishToShoppingCartById(String userId, String dishId, String shopId);
+    /**
      * 从购物车中移除美食
      * @param userId 用户id
      * @param dishId 移除的美食(Dish)id
+     * @param shopId 美食所属的餐厅(Shop)id
      * @return 返回Boolean代表移除是否成功
      */
-    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String dishId);
+    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String dishId, String shopId);
 
     /**
      * 增加经验并计算用户等级

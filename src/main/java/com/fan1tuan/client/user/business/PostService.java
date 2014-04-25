@@ -32,7 +32,7 @@ public interface PostService extends Fan1TuanService{
     StatusAwareResult<Boolean> delPost(String postId);
 
     /**
-     * (?)为已有Post添加图片
+     * 为已有Post添加图片
      * @param postId post信息id
      * @param imgPath 图片路径
      * @return 返回Boolean代表操作是否成功
@@ -50,10 +50,10 @@ public interface PostService extends Fan1TuanService{
     /**
      * 点赞
      * @param postId post信息id
-     * @param userId 点赞的用户id
+     * @param postFavorItem 新增的赞(PostFavorItem)实体
      * @return 返回Boolean代表操作是否成功
      */
-    StatusAwareResult<Boolean> addPostFavorItem(String postId, String userId);
+    StatusAwareResult<Boolean> addPostFavorItem(String postId, PostFavorItem postFavorItem);
 
     /**
      * 取消赞
