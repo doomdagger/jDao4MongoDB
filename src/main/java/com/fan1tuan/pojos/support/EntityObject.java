@@ -1,6 +1,6 @@
 package com.fan1tuan.pojos.support;
 
-import com.fan1tuan.util.DateUtil;
+import com.fan1tuan.util.date.DateUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

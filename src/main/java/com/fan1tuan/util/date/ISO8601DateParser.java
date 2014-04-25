@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.fan1tuan.util;
+package com.fan1tuan.util.date;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
