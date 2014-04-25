@@ -22,23 +22,12 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<User> test();
 
     /**
-     * 用户登录验证
-     * <b>(?)修改重要信息(如支付相关信息)时亦需重新验证</b>
-     * (?)返回类型
+     * 用户身份验证
      * @param username 用户名
-     * @param password 加密的用户密码
-     * @return 包含用户信息的用户(User)实体
+     * @param password 用户密码
+     * @return 返回Boolean代表用户是否存在
      */
-    StatusAwareResult<User> userLogon(String username, String password);
-
-    /**
-     * 修改用户密码
-     * @param userId 用户id
-     * @param currentUserPassword 用户当前密码
-     * @param newUserPassword 新密码
-     * @return 返回Boolean代表修改是否成功
-     */
-    StatusAwareResult<Boolean> editUserPassword(String userId, String currentUserPassword, String newUserPassword);
+    StatusAwareResult<Boolean> userExist(String username, String password);
 
     /**
      * 获取用户信息
@@ -50,18 +39,11 @@ public interface UserService extends Fan1TuanService{
 
     /**
      * 修改用户信息
-     * <p>这个方法只能修改密码以外的用户信息</p>
+     * <b>这个方法只能修改密码以外的用户信息</b>
      * @param user 用户模型
      * @return 返回Boolean代表修改是否成功
      */
     StatusAwareResult<Boolean> editUserInfo(User user);
-
-    /**
-     * 获取用户地址
-     * @param userId 用户id
-     * @return 返回用户地址(UserAddress)列表
-     */
-    StatusAwareResult<List<UserAddress>> fetchAddress(String userId);
 
     /**
      * 添加新的用户地址
@@ -81,19 +63,23 @@ public interface UserService extends Fan1TuanService{
 
 //    有待讨论。addressId: List<UserAddress>的下标
 //    StatusAwareResult<Boolean> delAddressById(String userId, String addressId);
-    /**
-     * 获取用户已有的代金券
-     * @param userId 用户id
-     * @return 返回代金券(Coupon)列表
-     */
-    StatusAwareResult<List<Coupon>> fetchCoupons(String userId);
 
     /**
-     * 获取餐厅收藏
+     * 为用户添加代金券
+     * <b>此方法只给用户添加代金券，需要额外为餐厅添加存根</b>
      * @param userId 用户id
-     * @return 餐厅收藏(ShopCollect)列表
+     * @param coupon 代金券(Coupon)实体
+     * @return 返回Boolean代表添加是否成功
      */
-    StatusAwareResult<List<ShopCollect>> fetchShopCollects(String userId);
+    StatusAwareResult<Boolean> addCoupon(String userId, Coupon coupon);
+
+    /**
+     * 使用用户已有代金券
+     * @param userId 用户id
+     * @param couponCode 欲使用的代金券编号
+     * @return 返回Boolean代表使用是否成功
+     */
+    StatusAwareResult<Boolean> useCoupon(String userId, String couponCode);
 
     /**
      * 添加餐厅收藏
@@ -110,13 +96,6 @@ public interface UserService extends Fan1TuanService{
      * @return 返回Boolean代表删除收藏是否成功
      */
     StatusAwareResult<Boolean> delShopCollect(String userId, String shopCollectId);
-
-    /**
-     * 获取美食收藏
-     * @param userId 用户id
-     * @return 返回美食收藏(DishCollect)列表
-     */
-    StatusAwareResult<List<DishCollect>> fetchDishCollects(String userId);
 
     /**
      * 添加美食收藏
@@ -136,12 +115,21 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> delDishCollect(String userId, String dishCollectId);
 
     /**
-     * 添加美食至购物车(？)
-     * (？)是否可能一次添加多个
-     * @param user 用户实体
+     * 添加美食至购物车
+     * @param userId 用户id
      * @param shopItem 美食
      * @return 返回Boolean代表添加是否成功
      */
-    StatusAwareResult<Boolean> addDishToShoppingCart(User user, ShopItem shopItem);
+    StatusAwareResult<Boolean> addDishToShoppingCart(String userId, ShopItem shopItem);
 
+//    有待讨论。只提供菜品id还是提供菜品的实体？
+//    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String shopItemId);
+
+    /**
+     * 增加经验并计算用户等级
+     * @param userId 用户id
+     * @param exp 本次获得的经验值
+     * @return 返回Boolean代表操作是否成功(或者返回当前等级和经验吗)
+     */
+    StatusAwareResult<Boolean> addExperience(String userId, int exp);
 }

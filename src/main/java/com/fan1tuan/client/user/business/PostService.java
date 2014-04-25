@@ -43,7 +43,7 @@ public interface PostService extends Fan1TuanService{
      * 评论已发布的post
      * @param postId post信息id
      * @param response 回复(Response)实体
-     * @return
+     * @return 返回Boolean代表操作是否成功
      */
     StatusAwareResult<Boolean> addResponse(String postId, Response response);
 
@@ -52,7 +52,7 @@ public interface PostService extends Fan1TuanService{
      * (？)是否可以添加多个
      * @param postId post信息id
      * @param postFavorItem PostFavorItem实体
-     * @return
+     * @return 返回Boolean代表操作是否成功
      */
     StatusAwareResult<Boolean> addPostFavorItem(String postId, PostFavorItem postFavorItem);
 }
