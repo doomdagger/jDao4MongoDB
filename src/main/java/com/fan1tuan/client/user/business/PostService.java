@@ -25,7 +25,7 @@ public interface PostService extends Fan1TuanService{
     StatusAwareResult<Boolean> addPost(Post... posts);
 
     /**
-     * 删除一个post信息
+     * 根据post信息的id删除
      * @param postId post信息的id值
      * @return 返回Boolean代表操作是否成功
      */
@@ -50,7 +50,7 @@ public interface PostService extends Fan1TuanService{
     StatusAwareResult<Boolean> addResponse(String postId, String responseUserId, String responseContent, int postSource);
 
     /**
-     * 点赞
+     * 对已有post信息点赞
      * @param postId post信息id
      * @param favoredUserId 点赞用户id
      * @param favoredUserName 点赞用户名
@@ -59,7 +59,7 @@ public interface PostService extends Fan1TuanService{
     StatusAwareResult<Boolean> addPostFavor(String postId, String favoredUserId, String favoredUserName);
 
     /**
-     * 取消赞
+     * 取消对已有post信息的赞
      * @param postId post信息id
      * @param userId 取消点赞的用户id
      * @return 返回Boolean代表操作是否成功
