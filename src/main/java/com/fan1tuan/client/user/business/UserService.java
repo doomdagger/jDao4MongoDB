@@ -46,15 +46,6 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> delAddress(String userId, String addressId);
 
     /**
-     * 为用户添加代金券
-     * <b>此方法只给用户添加代金券，需要额外为餐厅添加存根</b>
-     * @param userId 用户id
-     * @param coupon 代金券(Coupon)实体
-     * @return 返回Boolean代表添加是否成功
-     */
-    StatusAwareResult<Boolean> addCoupon(String userId, Coupon coupon);
-
-    /**
      * 使用用户已有代金券
      * @param userId 用户id
      * @param couponCode 欲使用的代金券编号
@@ -136,6 +127,7 @@ public interface UserService extends Fan1TuanService{
      * @return 返回Boolean代表添加是否成功
      */
     StatusAwareResult<Boolean> addDishToShoppingCartById(String userId, String dishId, String shopId);
+
     /**
      * 从购物车中移除美食
      * @param userId 用户id
@@ -152,4 +144,14 @@ public interface UserService extends Fan1TuanService{
      * @return 返回Boolean代表操作是否成功
      */
     StatusAwareResult<Boolean> addExperience(String userId, int exp);
+
+    /**
+     * 添加历史位置
+     * @param userId 用户id
+     * @param areaName 位置名称
+     * @param location 位置经纬度
+     * @return 返回Boolean代表操作是否成功
+     */
+    StatusAwareResult<Boolean> addUserCacheArea(String userId, String areaName, double[] location);
+
 }
