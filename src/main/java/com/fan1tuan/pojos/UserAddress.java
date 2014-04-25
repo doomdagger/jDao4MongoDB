@@ -8,9 +8,19 @@ import com.fan1tuan.pojos.support.EntityObject;
  */
 public class UserAddress extends EntityObject{
 
+    private String addressId; //如果用户想要删除一个地址，凭借此id唯一标识一个用户地址
     private String receiver;
     private String address; //address
     private String phone;
+
+
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId = addressId;
+    }
 
     public String getReceiver() {
         return receiver;
