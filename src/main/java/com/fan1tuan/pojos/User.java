@@ -38,7 +38,17 @@ public class User extends EntityObject{
 
     private ShoppingCart shoppingCart;
 
+    private String defaultAddressId; //此地址为主要地址，保证主要地址同时只能有一个
+
     private UserConfig userConfig;
+
+    public String getDefaultAddressId() {
+        return defaultAddressId;
+    }
+
+    public void setDefaultAddressId(String defaultAddressId) {
+        this.defaultAddressId = defaultAddressId;
+    }
 
     public String getId() {
         return id;

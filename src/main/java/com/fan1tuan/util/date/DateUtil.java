@@ -1,4 +1,4 @@
-package com.fan1tuan.util;
+package com.fan1tuan.util.date;
 
 import com.fan1tuan.config.Fan1TuanConfig;
 import org.apache.commons.lang3.StringUtils;
