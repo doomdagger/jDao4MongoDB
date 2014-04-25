@@ -3,6 +3,8 @@ package com.fan1tuan.client.user.business;
 import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.pojos.Post;
+import com.fan1tuan.pojos.PostFavorItem;
+import com.fan1tuan.pojos.Response;
 
 /**
  * Created by Li He on 2014/4/21.
@@ -29,5 +31,28 @@ public interface PostService extends Fan1TuanService{
      */
     StatusAwareResult<Boolean> delPost(String postId);
 
-    //todo: Consider: Is there any other actions for posts?
+    /**
+     * (?)为已有Post添加图片
+     * @param postId post信息id
+     * @param imgPath 图片路径
+     * @return 返回Boolean代表操作是否成功
+     */
+    StatusAwareResult<Boolean> addImageToPost(String postId, String imgPath);
+
+    /**
+     * 评论已发布的post
+     * @param postId post信息id
+     * @param response 回复(Response)实体
+     * @return
+     */
+    StatusAwareResult<Boolean> addResponse(String postId, Response response);
+
+    /**
+     * 添加PostFavorItem
+     * (？)是否可以添加多个
+     * @param postId post信息id
+     * @param postFavorItem PostFavorItem实体
+     * @return
+     */
+    StatusAwareResult<Boolean> addPostFavorItem(String postId, PostFavorItem postFavorItem);
 }

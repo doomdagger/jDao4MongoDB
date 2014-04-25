@@ -4,7 +4,9 @@ import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.pojos.*;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.animation.Animation;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -15,9 +17,44 @@ import java.util.List;
  */
 public interface UserService extends Fan1TuanService{
 
-    //todo: Add comments for methods
+    //todo: Discussion needed for (?)-marked comments...
 
     StatusAwareResult<User> test();
+
+    /**
+     * 用户登录验证
+     * <b>(?)修改重要信息(如支付相关信息)时亦需重新验证</b>
+     * (?)返回类型
+     * @param username 用户名
+     * @param password 加密的用户密码
+     * @return 包含用户信息的用户(User)实体
+     */
+    StatusAwareResult<User> userLogon(String username, String password);
+
+    /**
+     * 修改用户密码
+     * @param userId 用户id
+     * @param currentUserPassword 用户当前密码
+     * @param newUserPassword 新密码
+     * @return 返回Boolean代表修改是否成功
+     */
+    StatusAwareResult<Boolean> editUserPassword(String userId, String currentUserPassword, String newUserPassword);
+
+    /**
+     * 获取用户信息
+     * <b>不可以获取用户密码，亦不可用于验证用户身份</b>
+     * @param userId 用户id
+     * @return 返回包含用户信息的用户(User)实体
+     */
+    StatusAwareResult<User> fetchUserInfo(String userId);
+
+    /**
+     * 修改用户信息
+     * <p>这个方法只能修改密码以外的用户信息</p>
+     * @param user 用户模型
+     * @return 返回Boolean代表修改是否成功
+     */
+    StatusAwareResult<Boolean> editUserInfo(User user);
 
     /**
      * 获取用户地址
@@ -34,6 +71,16 @@ public interface UserService extends Fan1TuanService{
      */
     StatusAwareResult<Boolean> addAddress(String userId, UserAddress address);
 
+    /**
+     * 删除用户地址
+     * @param userId 用户id
+     * @param address (?)用户地址(UserAddress)实体
+     * @return 返回Boolean代表删除是否成功
+     */
+    StatusAwareResult<Boolean> delAddress(String userId, UserAddress address);
+
+//    有待讨论。addressId: List<UserAddress>的下标
+//    StatusAwareResult<Boolean> delAddressById(String userId, String addressId);
     /**
      * 获取用户已有的代金券
      * @param userId 用户id
@@ -89,19 +136,12 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> delDishCollect(String userId, String dishCollectId);
 
     /**
-     * 修改用户信息
-     * <p>这个方法只能修改密码以外的用户信息</p>
-     * @param user 用户模型
-     * @return 返回Boolean代表修改是否成功
+     * 添加美食至购物车(？)
+     * (？)是否可能一次添加多个
+     * @param user 用户实体
+     * @param shopItem 美食
+     * @return 返回Boolean代表添加是否成功
      */
-    StatusAwareResult<Boolean> editUserInfo(User user);
+    StatusAwareResult<Boolean> addDishToShoppingCart(User user, ShopItem shopItem);
 
-    /**
-     * 修改用户密码
-     * @param userId 用户id
-     * @param currentUserPassword 用户当前密码
-     * @param newUserPassword 新密码
-     * @return 返回Boolean代表修改是否成功
-     */
-    StatusAwareResult<Boolean> editUserPassword(String userId, String currentUserPassword, String newUserPassword);
 }
