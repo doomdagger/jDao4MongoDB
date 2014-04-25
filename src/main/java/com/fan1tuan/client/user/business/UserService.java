@@ -2,13 +2,7 @@ package com.fan1tuan.client.user.business;
 
 import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
-import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.pojos.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import javafx.animation.Animation;
-import org.springframework.ui.Model;
-
-import java.util.List;
 
 /**
  * Created by Li He on 2014/4/21.
@@ -16,8 +10,6 @@ import java.util.List;
  * @author Li He
  */
 public interface UserService extends Fan1TuanService{
-
-    //todo: Discussion needed for (?)-marked comments...
 
     StatusAwareResult<User> test();
 
@@ -48,13 +40,10 @@ public interface UserService extends Fan1TuanService{
     /**
      * 删除用户地址
      * @param userId 用户id
-     * @param address (?)用户地址(UserAddress)实体
+     * @param addressId 被删除的地址id
      * @return 返回Boolean代表删除是否成功
      */
-    StatusAwareResult<Boolean> delAddress(String userId, UserAddress address);
-
-//    有待讨论。addressId: List<UserAddress>的下标
-//    StatusAwareResult<Boolean> delAddressById(String userId, String addressId);
+    StatusAwareResult<Boolean> delAddress(String userId, String addressId);
 
     /**
      * 为用户添加代金券
@@ -76,10 +65,18 @@ public interface UserService extends Fan1TuanService{
     /**
      * 添加餐厅收藏
      * @param userId 用户id
-     * @param shopId 收藏的餐厅id
+     * @param shop 收藏的餐厅(shop)实体
      * @return 返回Boolean代表添加是否成功
      */
-    StatusAwareResult<Boolean> addShopCollect(String userId, String shopId);
+    StatusAwareResult<Boolean> addShopCollect(String userId, Shop shop);
+
+    /**
+     * 通过餐厅id添加收藏
+     * @param userId 用户id
+     * @param shopId 餐厅id
+     * @return 返回Boolean代表添加是否成功
+     */
+    StatusAwareResult<Boolean> addShopCollectById(String userId, String shopId);
 
     /**
      * 删除收藏餐厅
@@ -92,11 +89,19 @@ public interface UserService extends Fan1TuanService{
     /**
      * 添加美食收藏
      * @param userId 用户id
-     * @param shopItemId 收藏的美食id
+     * @param dish 添加收藏的美食
+     * @return 返回Boolean代表添加收藏是否成功
+     */
+    StatusAwareResult<Boolean> addDishCollect(String userId, Dish dish);
+
+    /**
+     * 通过美食和所属餐厅id添加美食收藏
+     * @param userId 用户id
+     * @param dishId 美食id
      * @param shopId 美食所属餐厅id
      * @return 返回Boolean代表添加收藏是否成功
      */
-    StatusAwareResult<Boolean> addDishCollect(String userId, String shopItemId, String shopId);
+    StatusAwareResult<Boolean> addDishCollectById(String userId, String dishId, String shopId);
 
     /**
      * 删除美食收藏
@@ -107,26 +112,44 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> delDishCollect(String userId, String dishCollectId);
 
     /**
+     * 通过美食和餐厅id删除收藏美食
+     * @param userId 用户id
+     * @param dishId 删除的美食id
+     * @param shopId 美食所属的餐厅id
+     * @return 返回Boolean代表删除是否成功
+     */
+    StatusAwareResult<Boolean> delDishCollectById(String userId, String dishId, String shopId);
+
+    /**
      * 添加美食至购物车
      * @param userId 用户id
-     * @param shopItem 美食
+     * @param dish 美食
      * @return 返回Boolean代表添加是否成功
      */
-    StatusAwareResult<Boolean> addDishToShoppingCart(String userId, ShopItem shopItem);
+    StatusAwareResult<Boolean> addDishToShoppingCart(String userId, Dish dish);
 
+    /**
+     * 通过美食和所属餐厅id添加美食至购物车
+     * @param userId 用户id
+     * @param dishId 美食id
+     * @param shopId 所属餐厅id
+     * @return 返回Boolean代表添加是否成功
+     */
+    StatusAwareResult<Boolean> addDishToShoppingCartById(String userId, String dishId, String shopId);
     /**
      * 从购物车中移除美食
      * @param userId 用户id
-     * @param shopItemId 移除的美食(ShopItem)id
+     * @param dishId 移除的美食(Dish)id
+     * @param shopId 美食所属的餐厅(Shop)id
      * @return 返回Boolean代表移除是否成功
      */
-    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String shopItemId);
+    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String dishId, String shopId);
 
     /**
      * 增加经验并计算用户等级
      * @param userId 用户id
      * @param exp 本次获得的经验值
-     * @return 返回Boolean代表操作是否成功(或者返回当前等级和经验吗)
+     * @return 返回Boolean代表操作是否成功
      */
     StatusAwareResult<Boolean> addExperience(String userId, int exp);
 }
