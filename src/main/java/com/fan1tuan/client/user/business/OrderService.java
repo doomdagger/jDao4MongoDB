@@ -2,10 +2,12 @@ package com.fan1tuan.client.user.business;
 
 import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
+import com.fan1tuan.business.support.enums.DishStatus;
 import com.fan1tuan.business.support.enums.OrderStatus;
 import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.pojos.Order;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,11 +43,66 @@ public interface OrderService extends Fan1TuanService{
      */
     StatusAwareResult<Order> fetchOrder(String orderId);
 
+    /**
+     * 分页查询订单
+     * @param userId 查询的用户id
+     * @param pageNumber [分页]需要查询第几页
+     * @param pageSize [分页]每页包含的订单数量
+     * @return 返回多个订单对象的列表
+     */
     StatusAwareResult<List<Order>> fetchOrders(String userId, int pageNumber, int pageSize);
 
 //    List<Order> fetchOrdersConditioned(String userId, int pageNumber, int pageSize);
 
 //    List<Order> searchOrders(String userId, int pageNumber, int pageSize);
 
+    /**
+     * 有条件地查询订单
+     * @param userId 查询者的用户id
+     * @param dishStatus [条件]需要查询的订单状态
+     * @param pageNumber [分页]需要查询第几页
+     * @param pageSize [分页]每页包含的订单数量
+     * @return 返回多个订单对象的列表
+     */
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, DishStatus dishStatus,
+                                                          int pageNumber, int pageSize);
+
+    /**
+     * 有条件地查询订单
+     * @param userId 查询者的用户id
+     * @param shopName [条件]餐厅名称
+     * @param pageNumber [分页]需要查询第几页
+     * @param pageSize [分页]每页包含的订单数量
+     * @return 返回多个订单对象的列表
+     */
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, String shopName,
+                                                          int pageNumber, int pageSize);
+
+    /**
+     * 有条件地查询订单
+     * @param userId 查询者的用户id
+     * @param dateBegin [条件]订单日期区间的起始日期
+     * @param dateEnd [条件]订单日期区间的结束日期
+     * @param pageNumber [分页]需要查询第几页
+     * @param pageSize [分页]每页包含的订单数量
+     * @return 返回多个订单对象的列表
+     */
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, Date dateBegin, Date dateEnd,
+                                                          int pageNumber, int pageSize);
+
+    /**
+     * 有条件地查询订单
+     * @param userId 查询者的用户id
+     * @param dishStatus [条件]需要查询的订单状态
+     * @param shopName [条件]餐厅名称
+     * @param dateBegin [条件]订单日期区间的起始日期
+     * @param dateEnd [条件]订单日期区间的结束日期
+     * @param pageNumber [分页]需要查询第几页
+     * @param pageSize [分页]每页包含的订单数量
+     * @return 返回多个订单对象的列表
+     */
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, DishStatus dishStatus,
+                                                          String shopName, Date dateBegin, Date dateEnd,
+                                                          int pageNumber, int pageSize);
 
 }
