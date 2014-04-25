@@ -55,4 +55,11 @@ public interface PostService extends Fan1TuanService{
      * @return 返回Boolean代表操作是否成功
      */
     StatusAwareResult<Boolean> addPostFavorItem(String postId, PostFavorItem postFavorItem);
+
+    /**
+     * 添加post查看人数
+     * @param postId post信息id
+     * @return 返回Boolean代表操作是否成功
+     */
+    StatusAwareResult<Boolean> addPostVisitorNumber(String postId);
 }

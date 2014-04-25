@@ -30,14 +30,6 @@ public interface UserService extends Fan1TuanService{
     StatusAwareResult<Boolean> userExist(String username, String password);
 
     /**
-     * 获取用户信息
-     * <b>不可以获取用户密码，亦不可用于验证用户身份</b>
-     * @param userId 用户id
-     * @return 返回包含用户信息的用户(User)实体
-     */
-    StatusAwareResult<User> fetchUserInfo(String userId);
-
-    /**
      * 修改用户信息
      * <b>这个方法只能修改密码以外的用户信息</b>
      * @param user 用户模型
@@ -122,8 +114,13 @@ public interface UserService extends Fan1TuanService{
      */
     StatusAwareResult<Boolean> addDishToShoppingCart(String userId, ShopItem shopItem);
 
-//    有待讨论。只提供菜品id还是提供菜品的实体？
-//    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String shopItemId);
+    /**
+     * 从购物车中移除美食
+     * @param userId 用户id
+     * @param shopItemId 移除的美食(ShopItem)id
+     * @return 返回Boolean代表移除是否成功
+     */
+    StatusAwareResult<Boolean> delDishFromShoppingCart(String userId, String shopItemId);
 
     /**
      * 增加经验并计算用户等级
