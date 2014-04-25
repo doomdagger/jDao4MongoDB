@@ -48,13 +48,20 @@ public interface PostService extends Fan1TuanService{
     StatusAwareResult<Boolean> addResponse(String postId, Response response);
 
     /**
-     * 添加PostFavorItem
-     * (？)是否可以添加多个
+     * 点赞
      * @param postId post信息id
-     * @param postFavorItem PostFavorItem实体
+     * @param userId 点赞的用户id
      * @return 返回Boolean代表操作是否成功
      */
-    StatusAwareResult<Boolean> addPostFavorItem(String postId, PostFavorItem postFavorItem);
+    StatusAwareResult<Boolean> addPostFavorItem(String postId, String userId);
+
+    /**
+     * 取消赞
+     * @param postId post信息id
+     * @param userId 取消点赞的用户id
+     * @return 返回Boolean代表操作是否成功
+     */
+    StatusAwareResult<Boolean> delPostFavorItem(String postId, String userId);
 
     /**
      * 添加post查看人数
