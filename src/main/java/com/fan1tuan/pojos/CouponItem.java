@@ -14,6 +14,9 @@ import java.util.Date;
 public class CouponItem extends EntityObject{
 
     private String code; //代金卷的编码，也是代金卷的消费凭据
+
+    private String exchangeCode; //代金券的兑换码
+
     private int faceValue; //面值
 
     private boolean used; //是否使用过
@@ -22,6 +25,13 @@ public class CouponItem extends EntityObject{
 
     private boolean valid; // used or expired coupon will be set to be invalid
 
+    public String getExchangeCode() {
+        return exchangeCode;
+    }
+
+    public void setExchangeCode(String exchangeCode) {
+        this.exchangeCode = exchangeCode;
+    }
     public String getCode() {
         return code;
     }
