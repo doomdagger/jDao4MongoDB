@@ -57,7 +57,7 @@ public interface OrderService extends Fan1TuanService{
 //    List<Order> searchOrders(String userId, int pageNumber, int pageSize);
 
     /**
-     * 有条件地查询订单
+     * 根据订单状态查询订单
      * @param userId 查询者的用户id
      * @param dishStatus [条件]需要查询的订单状态
      * @param pageNumber [分页]需要查询第几页
@@ -68,7 +68,7 @@ public interface OrderService extends Fan1TuanService{
                                                           int pageNumber, int pageSize);
 
     /**
-     * 有条件地查询订单
+     * 根据餐厅名称查询订单
      * @param userId 查询者的用户id
      * @param shopName [条件]餐厅名称
      * @param pageNumber [分页]需要查询第几页
@@ -79,7 +79,7 @@ public interface OrderService extends Fan1TuanService{
                                                           int pageNumber, int pageSize);
 
     /**
-     * 有条件地查询订单
+     * 根据订单日期查询订单
      * @param userId 查询者的用户id
      * @param dateBegin [条件]订单日期区间的起始日期
      * @param dateEnd [条件]订单日期区间的结束日期
@@ -91,7 +91,7 @@ public interface OrderService extends Fan1TuanService{
                                                           int pageNumber, int pageSize);
 
     /**
-     * 有条件地查询订单
+     * 根据多种条件查询订单
      * @param userId 查询者的用户id
      * @param dishStatus [条件]需要查询的订单状态
      * @param shopName [条件]餐厅名称
