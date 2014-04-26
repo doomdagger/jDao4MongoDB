@@ -52,30 +52,26 @@ public interface OrderService extends Fan1TuanService{
      */
     StatusAwareResult<List<Order>> fetchOrders(String userId, int pageNumber, int pageSize);
 
-//    List<Order> fetchOrdersConditioned(String userId, int pageNumber, int pageSize);
-
-//    List<Order> searchOrders(String userId, int pageNumber, int pageSize);
-
     /**
      * 根据订单状态查询订单
      * @param userId 查询者的用户id
-     * @param dishStatus [条件]需要查询的订单状态
+     * @param orderStatus [条件]需要查询的订单状态
      * @param pageNumber [分页]需要查询第几页
      * @param pageSize [分页]每页包含的订单数量
      * @return 返回多个订单对象的列表
      */
-    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, DishStatus dishStatus,
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, OrderStatus orderStatus,
                                                           int pageNumber, int pageSize);
 
     /**
      * 根据餐厅名称查询订单
      * @param userId 查询者的用户id
-     * @param shopName [条件]餐厅名称
+     * @param keywords [条件]餐厅名称的关键字
      * @param pageNumber [分页]需要查询第几页
      * @param pageSize [分页]每页包含的订单数量
      * @return 返回多个订单对象的列表
      */
-    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, String shopName,
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, String keywords,
                                                           int pageNumber, int pageSize);
 
     /**
@@ -93,16 +89,16 @@ public interface OrderService extends Fan1TuanService{
     /**
      * 根据多种条件查询订单
      * @param userId 查询者的用户id
-     * @param dishStatus [条件]需要查询的订单状态
-     * @param shopName [条件]餐厅名称
+     * @param orderStatus [条件]需要查询的订单状态
+     * @param keywords [条件]餐厅名称的关键字
      * @param dateBegin [条件]订单日期区间的起始日期
      * @param dateEnd [条件]订单日期区间的结束日期
      * @param pageNumber [分页]需要查询第几页
      * @param pageSize [分页]每页包含的订单数量
      * @return 返回多个订单对象的列表
      */
-    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, DishStatus dishStatus,
-                                                          String shopName, Date dateBegin, Date dateEnd,
+    StatusAwareResult<List<Order>> fetchOrdersConditioned(String userId, OrderStatus orderStatus,
+                                                          String keywords, Date dateBegin, Date dateEnd,
                                                           int pageNumber, int pageSize);
 
 }
