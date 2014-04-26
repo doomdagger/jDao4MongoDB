@@ -4,11 +4,10 @@ import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.business.support.enums.ResultStatus;
 import com.fan1tuan.client.user.business.UserService;
 import com.fan1tuan.dao.support.common.UUIDGenerator;
-import com.fan1tuan.pojos.Dish;
-import com.fan1tuan.pojos.Shop;
-import com.fan1tuan.pojos.User;
-import com.fan1tuan.pojos.UserAddress;
+import com.fan1tuan.pojos.*;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Li He on 2014/4/22.
@@ -42,7 +41,32 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public StatusAwareResult<Boolean> cellNumberBind(String userId, String cellNumber) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<Boolean> emailBind(String userId, String email) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<User> fetchUserInfo(String userId) {
+        return null;
+    }
+
+    @Override
     public StatusAwareResult<Boolean> editUserInfo(User user) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<Boolean> changeUserConfig(String userId, UserConfig userConfig) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<List<UserAddress>> fetchUserAddresses(String userId) {
         return null;
     }
 
@@ -57,52 +81,72 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public StatusAwareResult<Boolean> setDefaultAddress(String userId, String userAddressId) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<Boolean> editAddress(String userId, UserAddress userAddress) {
+        return null;
+    }
+
+    @Override
     public StatusAwareResult<Boolean> useCoupon(String userId, String couponCode) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addShopCollect(String userId, Shop shop) {
+    public StatusAwareResult<Boolean> exchangeCoupon(String userId, String exchangeCode) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addShopCollectById(String userId, String shopId) {
+    public StatusAwareResult<List<Coupon>> fetchValidCoupons(String userId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> delShopCollect(String userId, String shopCollectId) {
+    public StatusAwareResult<List<Coupon>> fetchUsedCoupons(String userId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addDishCollect(String userId, Dish dish) {
+    public StatusAwareResult<List<Coupon>> fetchExpiredCoupons(String userId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addDishCollectById(String userId, String dishId, String shopId) {
+    public StatusAwareResult<List<ShopCollect>> fetchShopCollects(String userId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> delDishCollect(String userId, String dishCollectId) {
+    public StatusAwareResult<Boolean> addShopCollect(String userId, String shopId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> delDishCollectById(String userId, String dishId, String shopId) {
+    public StatusAwareResult<Boolean> delShopCollect(String userId, String shopId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addDishToShoppingCart(String userId, Dish dish) {
+    public StatusAwareResult<List<DishCollect>> fetchDishCollects(String userId) {
         return null;
     }
 
     @Override
-    public StatusAwareResult<Boolean> addDishToShoppingCartById(String userId, String dishId, String shopId) {
+    public StatusAwareResult<Boolean> addDishCollect(String userId, String dishId, String shopId) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<Boolean> delDishCollect(String userId, String dishId, String shopId) {
+        return null;
+    }
+
+    @Override
+    public StatusAwareResult<Boolean> addDishToShoppingCart(String userId, String dishId, String shopId) {
         return null;
     }
 
@@ -117,8 +161,19 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public StatusAwareResult<List<UserCacheArea>> fetchUserCacheArea(String userId) {
+        return null;
+    }
+
+    @Override
     public StatusAwareResult<Boolean> addUserCacheArea(String userId, String areaName, double[] location) {
         return null;
     }
+
+    @Override
+    public StatusAwareResult<Boolean> delUserCacheArea(String userId, String cacheAreaId) {
+        return null;
+    }
+
 
 }
