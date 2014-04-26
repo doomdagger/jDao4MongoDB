@@ -10,6 +10,7 @@ import java.util.Date;
  */
 public class Response extends EntityObject{
 
+    private String responseId;
     private String userId;  //user id
     private String username; //user name
 
@@ -20,9 +21,23 @@ public class Response extends EntityObject{
     private boolean anonymous; //回复是否匿名
 
     private boolean hasReference;  //is the response has reference to another user -- sub response
-    private String referredUserId;  //the referred user id
-    private String referredUserName; //the referred user name
+    private String referredResponse;
 
+    public String getResponseId() {
+        return responseId;
+    }
+
+    public void setResponseId(String responseId) {
+        this.responseId = responseId;
+    }
+
+    public String getReferredResponse() {
+        return referredResponse;
+    }
+
+    public void setReferredResponse(String referredResponse) {
+        this.referredResponse = referredResponse;
+    }
 
     public boolean isAnonymous() {
         return anonymous;
@@ -80,19 +95,4 @@ public class Response extends EntityObject{
         this.hasReference = hasReference;
     }
 
-    public String getReferredUserId() {
-        return referredUserId;
-    }
-
-    public void setReferredUserId(String referredUserId) {
-        this.referredUserId = referredUserId;
-    }
-
-    public String getReferredUserName() {
-        return referredUserName;
-    }
-
-    public void setReferredUserName(String referredUserName) {
-        this.referredUserName = referredUserName;
-    }
 }
