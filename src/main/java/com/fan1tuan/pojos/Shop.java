@@ -21,6 +21,7 @@ public class Shop extends EntityObject{
     private List<String> shopTastes; //the flavors the shop have
 
     private int shopType;  //a entity shop or a retailer
+
     private int orderType; //way to order: online or phone call
 
     private int popularity; //popularity
@@ -47,8 +48,9 @@ public class Shop extends EntityObject{
 
     private List<CouponItem> couponItems; //卖家的Coupon存根，在这里，卖家可以查看Coupon的发放和使用记录
 
-    private boolean open; //is open now??
     private boolean availableForOrder; //can receive order now or not
+    private String unavailableReason;  //如果餐厅不接受订单，原因是什么
+
     private Date openTime; //open time daily
     private Date closeTime;//close time daily
 
@@ -223,12 +225,12 @@ public class Shop extends EntityObject{
         this.shopSales = shopSales;
     }
 
-    public boolean isOpen() {
-        return open;
+    public String getUnavailableReason() {
+        return unavailableReason;
     }
 
-    public void setOpen(boolean open) {
-        this.open = open;
+    public void setUnavailableReason(String unavailableReason) {
+        this.unavailableReason = unavailableReason;
     }
 
     public boolean isAvailableForOrder() {

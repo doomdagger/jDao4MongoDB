@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Li He on 2014/4/16.
@@ -28,7 +29,7 @@ public class DishComment extends EntityObject{
 
     private String comment; // comment content
     private int commentLevel; // offer comment level 1-5
-    private String commentImage; //image for comment, user take picture of the food
+    private List<String> commentImage; //image for comment, user take picture of the food
 
 
     private Date date;// date of the offered comment
@@ -122,11 +123,11 @@ public class DishComment extends EntityObject{
         this.commentLevel = commentLevel;
     }
 
-    public String getCommentImage() {
+    public List<String> getCommentImage() {
         return commentImage;
     }
 
-    public void setCommentImage(String commentImage) {
+    public void setCommentImage(List<String> commentImage) {
         this.commentImage = commentImage;
     }
 

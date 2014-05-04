@@ -20,7 +20,6 @@ public interface ShopService extends Fan1TuanService{
      * @param shopTastes 店铺的口味，string形式传参，默认为全部口味
      * @param shopTags 店铺的标签，string形式传参，默认为null，即不根据标签筛选店铺
      * @param shopType 店铺的类型，枚举，默认为null，即全部类型店铺
-     * @param open 店铺是否开门，默认为null，即全部店铺，无论是开门的，还是关门的
      * @param availableForOrder 店铺是否当前接受预定，默认为null，即全部店铺，无论是接受还是不接受
      * @param supportDelivery 店铺是否支持送餐，默认为null，即全部店铺，无论支不支持送餐
      * @param shopRankAccords 排行依据，可以为多个，在前面的优先，默认为null，不排序
@@ -32,7 +31,6 @@ public interface ShopService extends Fan1TuanService{
                                                         List<String> shopTastes,
                                                         List<String> shopTags,
                                                         ShopType shopType,
-                                                        Boolean open,
                                                         Boolean availableForOrder,
                                                         Boolean supportDelivery,
                                                         List<ShopRankAccord> shopRankAccords,

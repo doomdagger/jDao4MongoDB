@@ -1,4 +1,4 @@
-package com.fan1tuan.util;
+package com.fan1tuan.util.test;
 
 import com.fan1tuan.util.crypto.CryptoUtil;
 
