@@ -28,6 +28,7 @@ public interface AreaService extends Fan1TuanService{
 
     /**
      * 根据商圈的id获取商圈实体
+     * @param areaId area id
      * @return 商圈实体
      */
     StatusAwareResult<Area> fetchArea(String areaId);

@@ -4,6 +4,7 @@ import com.fan1tuan.business.support.Fan1TuanService;
 import com.fan1tuan.business.support.StatusAwareResult;
 import com.fan1tuan.business.support.enums.ShopRankAccord;
 import com.fan1tuan.business.support.enums.ShopType;
+import com.fan1tuan.pojos.Coupon;
 import com.fan1tuan.pojos.Shop;
 
 import java.util.List;
@@ -89,6 +90,19 @@ public interface ShopService extends Fan1TuanService{
     StatusAwareResult<Shop> fetchShop(String shopId);
 
 
+    /**
+     * 使用Coupon，此操作先根据Coupon code找到对应的存根，而后验证存根的有效信息，即此Coupon是否还可以继续使用
+     * @param couponCode 代金卷码
+     * @return Boolean值，代表兑换是否成功
+     */
+    StatusAwareResult<Boolean> useCoupon(String couponCode);
+
+    /**
+     * 兑换Coupon，此操作先根据Exchange Code找到对应的存根，而后根据存根创建Coupon对象返回
+     * @param exchangeCode 兑换码
+     * @return Coupon对象，兑换失败返回null
+     */
+    StatusAwareResult<Coupon> exchangeCoupon(String exchangeCode);
 }
 
 
