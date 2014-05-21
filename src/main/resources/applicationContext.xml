@@ -22,12 +22,6 @@
 
     <!-- package scan for spring annotation-driven configuration -->
     <context:component-scan base-package="com.fan1tuan.dao.impl"/>
-    <context:component-scan base-package="com.fan1tuan.client.user.business.impl"/>
-    <context:component-scan base-package="com.fan1tuan.client.shop.business.impl"/>
-    <context:component-scan base-package="com.fan1tuan.client.share.business.impl"/>
-
-    <!-- test usage, removed in release version -->
-    <context:component-scan base-package="com.fan1tuan.util.gen" />
 
     <!-- mongodb configuration -->
     <mongo:mongo id="mongo" host="${mongo.host}" port="${mongo.port}">
