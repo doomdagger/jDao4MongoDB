@@ -1,3 +1,3 @@
-#fan1tuan
+# jDao for MongoDB
 
-> 饭1团项目托管
+> 使用mongoDB作为数据库开发Java Web项目的模板
